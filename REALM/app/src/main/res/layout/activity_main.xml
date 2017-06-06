@@ -19,7 +19,7 @@
         android:layout_alignParentBottom="true">
 
     <Button
-        android:id="@+id/button_new_guitar"
+        android:id="@+id/button_new_carro"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

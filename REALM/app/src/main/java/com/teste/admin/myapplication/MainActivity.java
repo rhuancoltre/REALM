@@ -20,9 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
-
     private Realm mRealm;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(layoutManager);
 
         mRealm = Realm.getDefaultInstance();
-        RealmQuery<Carro> carro = mRealm.where(Carro.class);
-        mRecyclerView.setAdapter(new ListCarroAdapter(this, carro));
+        RealmQuery<Carro> carros = mRealm.where(Carro.class);
+        mRecyclerView.setAdapter(new ListCarroAdapter(this, carros));
     }
-    @OnClick(R.id.button_new_guitar)
+
+    @OnClick(R.id.button_new_carro)
     public void onClickOpenNewCarro(View v) {
         startActivity(new Intent(this, NewCarroActivity.class));
     }

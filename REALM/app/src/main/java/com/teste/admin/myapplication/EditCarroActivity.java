@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
 import com.teste.admin.myapplication.models.Carro;
 
 import butterknife.BindView;
@@ -13,10 +12,10 @@ import butterknife.OnClick;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 
-
-public class EditCarroActivity extends AppCompatActivity implements RealmChangeListener<Realm>{
+public class EditCarroActivity extends AppCompatActivity implements RealmChangeListener<Realm> {
 
     public static final String INTENT_KEY_EDIT_ID = "INTENT_KEY_EDIT_ID";
+
     @BindView(R.id.edittext_name)
     EditText mEditTextName;
     @BindView(R.id.edittext_color)
@@ -28,6 +27,7 @@ public class EditCarroActivity extends AppCompatActivity implements RealmChangeL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_carro);
+
         ButterKnife.bind(this);
 
         //RECUPERANDO DADOS E SETANDO NOS EDITs
@@ -60,6 +60,5 @@ public class EditCarroActivity extends AppCompatActivity implements RealmChangeL
         super.onDestroy();
         mRealm.removeChangeListener(this);
         mRealm.close();
-        //
     }
 }
