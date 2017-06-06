@@ -18,7 +18,7 @@ public class MigrationMyData implements RealmMigration {
         RealmSchema schema = realm.getSchema();
 
         if (oldVersion == 0) {
-            schema.get("")
+            schema.get("Carro")
                     .addField("strings", String.class);
             oldVersion++;
         }

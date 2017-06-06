@@ -19,7 +19,6 @@ import io.realm.RealmQuery;
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.recycler_view)
-
     RecyclerView mRecyclerView;
 
     private Realm mRealm;
@@ -47,5 +46,18 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.button_new_guitar)
     public void onClickOpenNewCarro(View v) {
         startActivity(new Intent(this, NewCarroActivity.class));
+    }
+
+    //ATUALIZANDO A LISTA (POS INSERCAO, EXCLUSAO e ALTERACAO)
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mRecyclerView.getAdapter().notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mRealm.close();
     }
 }
